@@ -11,13 +11,13 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('barang.index') }}">
-                        <i class="fas fa-pen-square"></i>
+                        <i class="fas fa-archive"></i>
                         <p>barang</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('suplier.index') }}">
-                        <i class="fas fa-pen-square"></i>
+                        <i class="fas fa-users"></i>
                         <p>suplier</p>
                     </a>
                 </li>
@@ -29,13 +29,13 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('pembelian.index') }}">
-                        <i class="fas fa-pen-square"></i>
+                        <i class="fas fa-shopping-basket"></i>
                         <p>pembelian</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('hutang.index') }}">
-                        <i class="fas fa-pen-square"></i>
+                        <i class="fas fa-folder"></i>
                         <p>hutang</p>
                     </a>
                 </li>

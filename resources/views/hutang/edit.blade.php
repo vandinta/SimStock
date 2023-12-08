@@ -3,10 +3,10 @@
 @section('content')
 <div class="page-inner">
   <div class="page-header">
-    <h4 class="page-title">Data ProduK</h4>
+    <h4 class="page-title">Data Hutang</h4>
     <ul class="breadcrumbs">
       <li class="nav-item">
-        <a href="{{ route('product.index') }}">Data Produk</a>
+        <a href="{{ route('hutang.index') }}">Data Hutang</a>
       </li>
     </ul>
   </div>
@@ -34,38 +34,43 @@
       <div class="card">
         <div class="card-header">
           <div class="d-flex align-items-center">
-            <h4 class="card-title">Ubah Data Produk</h4>
+            <h4 class="card-title">Ubah Data Hutang</h4>
             <div class="ml-auto">
             </div>
-            <a href="{{ route('product.index') }}" type="button" class="btn btn-primary btn-round ml-2"> kembali</a>
+            <a href="{{ route('hutang.index') }}" type="button" class="btn btn-primary btn-round ml-2"> kembali</a>
           </div>
         </div>
         <div class="card-body">
           <div class="row">
             <div class="col-md-6 col-lg-12">
-              <form action="{{ route('product.update', $product->id) }}" method="post">
+              <form action="{{ route('hutang.update', $hutang->id) }}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                  <label for="product_name">Nama Produk</label>
-                  <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Nama Produk" value="{{ $product->product_name }}" autofocus>
-                </div>
-                <div class="form-group">
-                  <label for="category">Kategori Produk</label>
-                  <select class="form-control" id="category_id" name="category_id" autofocus>
-                    <option value=""></option>
-                    @foreach ($category as $ct)
-                    <option value="<?= $ct['id'] ?>" {{ $product->category_id == $ct['id'] ? 'selected' : '' }} ><?= $ct['category'] ?></option>
+                  <label for="notransaksi">No Transaksi</label>
+                  <select class="form-control" id="notransaksi" name="notransaksi" autofocus>
+                    <option value=""> Pilih No Transaksi </option>
+                    @foreach ($pembelian as $pb)
+                    <option value="<?= $pb['notransaksi'] ?>" {{ $hutang->notransaksi == $pb['notransaksi'] ? 'selected' : '' }}><?= $pb['notransaksi'] ?></option>
                     @endforeach
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="price">Harga Produk</label>
-                  <input type="number" class="form-control" id="price" name="price" placeholder="Harga Produk" value="{{ $product->price }}" autofocus>
+                  <label for="kodespl">Suplier</label>
+                  <select class="form-control" id="kodespl" name="kodespl" autofocus>
+                    <option value=""> Pilih Suplier </option>
+                    @foreach ($suplier as $sp)
+                    <option value="<?= $sp['kodespl'] ?>" {{ $hutang->kodespl == $sp['kodespl'] ? 'selected' : '' }}><?= $sp['namaspl'] ?></option>
+                    @endforeach
+                  </select>
                 </div>
                 <div class="form-group">
-                  <label for="description">Deskripsi Produk</label>
-                  <input type="text" class="form-control" id="description" name="description" placeholder="Deskripsi Produk" value="{{ $product->description }}" autofocus>
+                  <label for="tglbeli">Tanggal Beli</label>
+                  <input type="date" class="form-control" id="tglbeli" name="tglbeli" placeholder="Tanggal Beli" value="{{ $hutang->tglbeli }}" autofocus>
+                </div>
+                <div class="form-group">
+                  <label for="totalhutang">Total Hutang</label>
+                  <input type="number" class="form-control" id="totalhutang" name="totalhutang" placeholder="Total Hutang" value="{{ $hutang->totalhutang }}" autofocus>
                 </div>
                 <button type="submit" class="btn btn-outline-success float-right">Ubah</button>
               </form>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Hutang;
 use App\Models\Suplier;
+use App\Models\Pembelian;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 
@@ -32,7 +33,8 @@ class HutangController extends Controller
     public function create()
     {
         $suplier = Suplier::all();
-        return view('hutang.tambah', compact('suplier'));
+        $pembelian = Pembelian::all();
+        return view('hutang.tambah', compact('suplier', 'pembelian'));
     }
 
     public function store(Request $request)
@@ -69,7 +71,8 @@ class HutangController extends Controller
     public function edit(Hutang $hutang)
     {
         $suplier = Suplier::all();
-        return view('hutang.edit', compact('hutang', 'suplier'));
+        $pembelian = Pembelian::all();
+        return view('hutang.edit', compact('hutang', 'suplier', 'pembelian'));
     }
 
     public function update(Request $request, hutang $hutang)
